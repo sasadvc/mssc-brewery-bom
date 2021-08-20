@@ -153,7 +153,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<executions>
 					<execution>
@@ -172,14 +171,14 @@
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>${mapstruct.version}</version>
-						</path>
-						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
 						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
@@ -194,7 +193,7 @@
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>enforce-plugin</id>
+						<id>enforce-versions</id>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -206,10 +205,10 @@
 								<requireJavaVersion>
 									<version>11</version>
 								</requireJavaVersion>
-								<requireReleaseVersionDeps>
+								<requireReleaseDeps>
 									<onlyWhenRelease>true</onlyWhenRelease>
-									<message>Release builds must not have on snapshot dependency</message>
-								</requireReleaseVersionDeps>
+									<message>Release builds must not have on snapshot dependencies</message>
+								</requireReleaseDeps>
 							</rules>
 						</configuration>
 					</execution>
